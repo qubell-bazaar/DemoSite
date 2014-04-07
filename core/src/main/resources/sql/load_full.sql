@@ -1,115 +1,5 @@
---
--- This file contains the out of box menus items (modules and sections) for the admin and their corresponding 
--- permission mappings.
---
--- Client systems can choose new modules and associated permission mappings by deleting rows they don't want and adding
--- others that make sense for their admin.
---
--- Broadleaf Commerce add-on modules will add rows to these tables as needed.
---
 
 --
--- Create BLC MODULES (These modules are required for the admin left navigation)
---
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-1,'Catalog','BLCMerchandising', 'icon-barcode', 100);
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-2,'Content','BLCContentManagement', 'icon-file', 200);
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-3,'Customer Care','BLCCustomerCare', 'icon-heart', 300);
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-6,'Design','BLCDesign', 'icon-picture', 400);
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-7,'Site Updates','BLCWorkflow', 'icon-refresh', 500);
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-4,'Security','BLCOpenAdmin', 'icon-user', 600);
-INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-5,'Settings','BLCModuleConfiguration', 'icon-gear', 700);
-
---
--- Create BLC SECTIONS (These modules are required for the admin left navigation)
---
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-1, 1000, -1, 'Category', 'Category', '/category', 'org.broadleafcommerce.core.catalog.domain.Category');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-2, 2000, -1, 'Product', 'Product', '/product', 'org.broadleafcommerce.core.catalog.domain.Product');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-3, 3000, -1, 'Product Options', 'ProductOptions', '/product-options', 'org.broadleafcommerce.core.catalog.domain.ProductOption');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-4, 4000, -1, 'Offer', 'Offer', '/offer', 'org.broadleafcommerce.core.offer.domain.Offer');
-
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-5, 1000, -2, 'Pages', 'Pages', '/pages', 'org.broadleafcommerce.cms.page.domain.Page');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-7, 2000, -2, 'Structured Content', 'StructuredContent', '/structured-content', 'org.broadleafcommerce.cms.structure.domain.StructuredContent');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-6, 3000, -2, 'Assets', 'Assets', '/assets', 'org.broadleafcommerce.cms.file.domain.StaticAsset');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-8, 4000, -2, 'Redirect URL', 'RedirectURL', '/redirect-url', 'org.broadleafcommerce.cms.url.domain.URLHandler');
-
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-9, 2000, -3, 'Order', 'Order', '/order', 'org.broadleafcommerce.core.order.domain.Order');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-10, 1000, -3,'Customer', 'Customer', '/customer', 'org.broadleafcommerce.profile.core.domain.Customer');
-
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-11, 1000, -4, 'User Management', 'UserManagement', '/user-management', 'org.broadleafcommerce.openadmin.server.security.domain.AdminUser');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-12, 2000, -4, 'Role Management', 'RoleManagement', '/role-management', 'org.broadleafcommerce.openadmin.server.security.domain.AdminRole');
-
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-13, 1000, -5, 'Configuration Management', 'ConfigurationManagement', '/configuration-management', 'org.broadleafcommerce.common.config.domain.ModuleConfiguration');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-15, 3000, -5, 'System Property Management', 'SystemPropertyManagement', '/system-properties-management', 'org.broadleafcommerce.common.config.domain.SystemProperty');
-INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-16, 2000, -5, 'System Properties', 'SystemProperties', '/system-properties', 'org.broadleafcommerce.common.config.domain.SystemProperty');
-
--- INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-14, 2000, -5, 'Enumerations', 'Enumerations', '/enumerations', 'org.broadleafcommerce.common.enumeration.domain.DataDrivenEnumeration');
-
-
---
---
--- Mapping from Sections to Permissions
---
--- Category
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-1,-100);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-1,-101);
-
--- Product
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-2,-102);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-2,-103);
-
--- Product Options
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-3,-104);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-3,-105);
-
--- Offer
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-4,-106);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-4,-107);
-
--- Pages
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-5,-108);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-5,-109);
-
--- Assets
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-6,-110);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-6,-111);
-
--- Structured Content
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-7,-112);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-7,-113);
-
--- Redirect URL
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-8,-114);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-8,-115);
-
--- Order
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-9,-116);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-9,-117);
-
--- Customer
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-10,-118);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-10,-119);
-
--- User Management
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-11,-120);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-11,-121);
-
--- Role Management
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-12,-120);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-12,-121);
-
--- Configuration Managament
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-13,-126);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-13,-127);
-
--- Data Driven Enumerations
--- INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-14,-128);
--- INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-14,-129);
-
--- System Properties
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-15,-122);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-15,-123);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-16,-122);
-INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-16,-123);--
 -- Create BLC PERMISSIONS (These permissions are required for the admin)
 --
 INSERT INTO BLC_ADMIN_PERMISSION (ADMIN_PERMISSION_ID, DESCRIPTION, NAME, PERMISSION_TYPE, IS_FRIENDLY) VALUES (-1,'Default Permission','PERMISSION_OTHER_DEFAULT', 'OTHER', FALSE);
@@ -664,6 +554,117 @@ INSERT INTO BLC_ADMIN_ROLE_PERMISSION_XREF (ADMIN_ROLE_ID, ADMIN_PERMISSION_ID) 
 -- CMS Approver
 INSERT INTO BLC_ADMIN_ROLE_PERMISSION_XREF (ADMIN_ROLE_ID, ADMIN_PERMISSION_ID) VALUES (-6,-109);
 INSERT INTO BLC_ADMIN_ROLE_PERMISSION_XREF (ADMIN_ROLE_ID, ADMIN_PERMISSION_ID) VALUES (-6,-111);--
+-- This file contains the out of box menus items (modules and sections) for the admin and their corresponding 
+-- permission mappings.
+--
+-- Client systems can choose new modules and associated permission mappings by deleting rows they don't want and adding
+-- others that make sense for their admin.
+--
+-- Broadleaf Commerce add-on modules will add rows to these tables as needed.
+--
+
+--
+-- Create BLC MODULES (These modules are required for the admin left navigation)
+--
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-1,'Catalog','BLCMerchandising', 'icon-barcode', 100);
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-2,'Content','BLCContentManagement', 'icon-file', 200);
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-3,'Customer Care','BLCCustomerCare', 'icon-heart', 300);
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-6,'Design','BLCDesign', 'icon-picture', 400);
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-7,'Site Updates','BLCWorkflow', 'icon-refresh', 500);
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-4,'Security','BLCOpenAdmin', 'icon-user', 600);
+INSERT INTO BLC_ADMIN_MODULE (ADMIN_MODULE_ID, NAME, MODULE_KEY, ICON, DISPLAY_ORDER) VALUES (-5,'Settings','BLCModuleConfiguration', 'icon-gear', 700);
+
+--
+-- Create BLC SECTIONS (These modules are required for the admin left navigation)
+--
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-1, 1000, -1, 'Category', 'Category', '/category', 'org.broadleafcommerce.core.catalog.domain.Category');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-2, 2000, -1, 'Product', 'Product', '/product', 'org.broadleafcommerce.core.catalog.domain.Product');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-3, 3000, -1, 'Product Options', 'ProductOptions', '/product-options', 'org.broadleafcommerce.core.catalog.domain.ProductOption');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-4, 4000, -1, 'Offer', 'Offer', '/offer', 'org.broadleafcommerce.core.offer.domain.Offer');
+
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-5, 1000, -2, 'Pages', 'Pages', '/pages', 'org.broadleafcommerce.cms.page.domain.Page');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-7, 2000, -2, 'Structured Content', 'StructuredContent', '/structured-content', 'org.broadleafcommerce.cms.structure.domain.StructuredContent');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-6, 3000, -2, 'Assets', 'Assets', '/assets', 'org.broadleafcommerce.cms.file.domain.StaticAsset');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-8, 4000, -2, 'Redirect URL', 'RedirectURL', '/redirect-url', 'org.broadleafcommerce.cms.url.domain.URLHandler');
+
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-9, 2000, -3, 'Order', 'Order', '/order', 'org.broadleafcommerce.core.order.domain.Order');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-10, 1000, -3,'Customer', 'Customer', '/customer', 'org.broadleafcommerce.profile.core.domain.Customer');
+
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-11, 1000, -4, 'User Management', 'UserManagement', '/user-management', 'org.broadleafcommerce.openadmin.server.security.domain.AdminUser');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-12, 2000, -4, 'Role Management', 'RoleManagement', '/role-management', 'org.broadleafcommerce.openadmin.server.security.domain.AdminRole');
+
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-13, 1000, -5, 'Configuration Management', 'ConfigurationManagement', '/configuration-management', 'org.broadleafcommerce.common.config.domain.ModuleConfiguration');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-15, 3000, -5, 'System Property Management', 'SystemPropertyManagement', '/system-properties-management', 'org.broadleafcommerce.common.config.domain.SystemProperty');
+INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-16, 2000, -5, 'System Properties', 'SystemProperties', '/system-properties', 'org.broadleafcommerce.common.config.domain.SystemProperty');
+
+-- INSERT INTO BLC_ADMIN_SECTION (ADMIN_SECTION_ID, DISPLAY_ORDER, ADMIN_MODULE_ID, NAME, SECTION_KEY, URL, CEILING_ENTITY) VALUES (-14, 2000, -5, 'Enumerations', 'Enumerations', '/enumerations', 'org.broadleafcommerce.common.enumeration.domain.DataDrivenEnumeration');
+
+
+--
+--
+-- Mapping from Sections to Permissions
+--
+-- Category
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-1,-100);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-1,-101);
+
+-- Product
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-2,-102);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-2,-103);
+
+-- Product Options
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-3,-104);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-3,-105);
+
+-- Offer
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-4,-106);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-4,-107);
+
+-- Pages
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-5,-108);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-5,-109);
+
+-- Assets
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-6,-110);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-6,-111);
+
+-- Structured Content
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-7,-112);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-7,-113);
+
+-- Redirect URL
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-8,-114);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-8,-115);
+
+-- Order
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-9,-116);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-9,-117);
+
+-- Customer
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-10,-118);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-10,-119);
+
+-- User Management
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-11,-120);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-11,-121);
+
+-- Role Management
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-12,-120);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-12,-121);
+
+-- Configuration Managament
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-13,-126);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-13,-127);
+
+-- Data Driven Enumerations
+-- INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-14,-128);
+-- INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-14,-129);
+
+-- System Properties
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-15,-122);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-15,-123);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-16,-122);
+INSERT INTO BLC_ADMIN_SEC_PERM_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (-16,-123);--
 -- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
 --
 -- This will cause hibernate to populate the database when the application is started by processing the files that
@@ -704,6 +705,249 @@ INSERT INTO BLC_ADMIN_USER_ROLE_XREF (ADMIN_ROLE_ID, ADMIN_USER_ID) VALUES (-3,-
 INSERT INTO BLC_ADMIN_USER_ROLE_XREF (ADMIN_ROLE_ID, ADMIN_USER_ID) VALUES (-4,-4);
 INSERT INTO BLC_ADMIN_USER_ROLE_XREF (ADMIN_ROLE_ID, ADMIN_USER_ID) VALUES (-5,-5);
 INSERT INTO BLC_ADMIN_USER_ROLE_XREF (ADMIN_ROLE_ID, ADMIN_USER_ID) VALUES (-6,-6);
+--
+-- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
+--
+-- This will cause hibernate to populate the database when the application is started by processing the files that
+-- were configured in the hibernate.hbm2ddl.import_files property.
+--
+-- This file is responsible for loading  out-of-box miscellaneous tables
+--
+
+-- ???? to do / document me (believe this is for securing pages through the site web.app
+INSERT INTO BLC_ROLE (ROLE_ID, ROLE_NAME) VALUES (1,'ROLE_USER');
+
+-- ???? to do / document me
+INSERT INTO BLC_ID_GENERATION (ID_TYPE, BATCH_SIZE, BATCH_START, VERSION) VALUES ('org.broadleafcommerce.profile.core.domain.Customer',100,100,1);
+
+-- Sample challenge questions
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (1,'What is your favorite sports team?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (2,'What was your high school name?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (3,'What was your childhood nickname?'); 
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (4,'What street did you live on in third grade?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (5,'What is your oldest sibling''s middle name?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (6,'What school did you attend for sixth grade?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (7,'Where does your nearest sibling live?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (8,'What is your youngest brother''s birthday?');
+INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (9,'In what city or town was your first job?');
+
+-- Sample countries.  To do, where is this used?
+INSERT INTO BLC_COUNTRY VALUES ('US','United States');
+INSERT INTO BLC_COUNTRY VALUES ('CA','Canada');
+INSERT INTO BLC_COUNTRY VALUES ('MX','Mexico');
+
+-- Sample state list.  To do, where is this used
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ALABAMA','AL','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ALASKA','AK','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('AMERICAN SAMOA','AS','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ARIZONA','AZ','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ARKANSAS','AR','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('CALIFORNIA','CA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('COLORADO','CO','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('CONNECTICUT','CT','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('DELAWARE','DE','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('DISTRICT OF COLUMBIA','DC','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('FEDERATED STATES OF MICRONESIA','FM','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('FLORIDA','FL','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('GEORGIA','GA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('GUAM','GU','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('HAWAII','HI','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('IDAHO','ID','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ILLINOIS','IL','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('INDIANA','IN','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('IOWA','IA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('KANSAS','KS','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('KENTUCKY','KY','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('LOUISIANA','LA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MAINE','ME','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MARSHALL ISLANDS','MH','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MARYLAND','MD','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MASSACHUSETTS','MA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MICHIGAN','MI','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MINNESOTA','MN','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MISSISSIPPI','MS','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MISSOURI','MO','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MONTANA','MT','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEBRASKA','NE','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEVADA','NV','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW HAMPSHIRE','NH','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW JERSEY','NJ','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW MEXICO','NM','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW YORK','NY','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NORTH CAROLINA','NC','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NORTH DAKOTA','ND','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NORTHERN MARIANA ISLANDS','MP','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('OHIO','OH','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('OKLAHOMA','OK','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('OREGON','OR','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('PALAU','PW','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('PENNSYLVANIA','PA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('PUERTO RICO','PR','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('RHODE ISLAND','RI','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('SOUTH CAROLINA','SC','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('SOUTH DAKOTA','SD','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('TENNESSEE','TN','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('TEXAS','TX','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('UTAH','UT','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('VERMONT','VT','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('VIRGIN ISLANDS','VI','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('VIRGINIA','VA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WASHINGTON','WA','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WEST VIRGINIA','WV','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WISCONSIN','WI','US');
+INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WYOMING','WY','US');
+--
+-- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
+--
+-- This will cause hibernate to populate the database when the application is started by processing the files that
+-- were configured in the hibernate.hbm2ddl.import_files property.
+--
+-- This file is responsible for initializing table sequences.   The numbers here need
+-- to be greater than the ids that are inserted as part of load_catalog_data.sql (or other load files)
+-- to prevent duplicate key exceptions.
+--
+
+--
+-- Initialize SEQUENCE_GENERATOR values
+--
+
+-- Catalog
+INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryImpl',10000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('CategorySearchFacetImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryExcludedSearchFacetImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('SearchFacetImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('SearchFacetRangeImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductImpl',10000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryProductImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('SkuImpl',10000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductOptionImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductOptionXrefImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductOptionValueImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductAttributeImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('MediaImpl',100000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('StaticAssetImpl',100000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('URLHandlerImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('SearchInterceptImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FeaturedProductImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('OfferItemCriteriaImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('OfferImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('OfferCodeImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FulfillmentOptionImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryXrefImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryProductXrefImpl',1000);
+
+-- CMS
+INSERT INTO SEQUENCE_GENERATOR VALUES ('PageImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('PageFieldImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('PageTemplateImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldDefinitionImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldEnumerationImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldEnumerationItemImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentFieldImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentRuleImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentTypeImpl',1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldGroupImpl', 1000);
+
+-- Other
+INSERT INTO SEQUENCE_GENERATOR VALUES ('RoleImpl', 1000);
+INSERT INTO SEQUENCE_GENERATOR VALUES ('ChallengeQuestionImpl', 1000);--
+-- The Sample Project is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
+--
+-- This will cause hibernate to populate the database when the application is started by processing the files that
+-- were configured in the hibernate.hbm2ddl.import_files property.
+--
+-- This file is responsible for creating the content structure which includes page-types (e.g. template
+-- mappings) and structured-content-types (e.g. ad placement among other things).
+--
+
+--
+-- Load Currencies:  Your site will need currencies defined in order to use price lists.
+-- Currencies need to be defined before locale if they are using a currency code.
+-- i18n standard abbreviations should be used.
+--
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('USD', 'US Dollar', TRUE);
+
+--
+-- Load Locales:  Your site must have at least one Locale with DEFAULT_FLAG set to TRUE
+-- You can have as many locales as you like. Currency can be set  to null if none have
+-- been defined. i18n standard abbreviations should be used.
+--
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('en_US', TRUE, 'English US', 'USD');
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('en', FALSE, 'English', 'USD');
+
+--
+-- The following items create page templates.    
+-- In the example below, there is only one page templates "basic" providing a header, footer, and sidebar around the content
+-- The full path to the template is .../WEB_INF/jsp/templates/content/default.html
+INSERT INTO BLC_PAGE_TMPLT (PAGE_TMPLT_ID, TMPLT_NAME, TMPLT_DESCR, TMPLT_PATH) VALUES (1, 'Default Template', 'Provides a basic layout with header and footer surrounding the content and title.', '/content/default') ;
+
+--
+-- Field groups define a list of dynamic fields.    Field groups can be associated with page
+-- templates or structured content types.    The field group below defines two fields named
+-- "body", which is a rich text edit field, and "title", which is a string field.
+-- This will tell the Broadleaf admin how to generate the view for a given template
+--
+INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (1, 'Content', FALSE);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (3, 'title', 'Title', 'STRING', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, 1, 0);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (2, 'body', 'Body', 'HTML', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, 1, 1);
+
+--
+-- Map both templates to the field groups
+--
+INSERT INTO BLC_PGTMPLT_FLDGRP_XREF(PAGE_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (1,1,0);
+
+--  
+-- NONE template
+-- 
+-- note id 2 is in i18n file
+INSERT INTO BLC_PAGE_TMPLT (PAGE_TMPLT_ID, TMPLT_NAME, TMPLT_DESCR, TMPLT_PATH) VALUES (-3, 'NONE', 'Outputs the body field.', 'NONE') ;
+INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (-3, 'None', FALSE);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (-1, 'body', 'File Contents', 'HTML', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, -3, 0);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (-2, 'plainText', 'Plain Text', 'BOOLEAN', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, -3, 1);
+
+INSERT INTO BLC_PGTMPLT_FLDGRP_XREF(PAGE_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (-3, -3 ,0);
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- Structured Content Step 1:   Create Structured Content Field Groups
+-----------------------------------------------------------------------------------------------------------------------------------
+-- Create Ad Fields - Defining the ad field group as a group of two fields: Image URL and Target URL
+INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (4, 'Ad Fields', FALSE);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (7, 'imageUrl', 'Image URL', 'STRING', NULL, FALSE, null, null, 150, '*', FALSE, NULL, FALSE, 4, 0);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (8, 'targetUrl', 'Target URL', 'STRING', NULL, FALSE, null, null, 150, '*', FALSE, NULL, FALSE, 4, 1);
+
+-- Create HTML Fields - Defining the message field group as a single field called messageText
+INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (5, 'HTML Fields', FALSE);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (10, 'htmlContent', 'HTML Content', 'HTML', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, 5, 0);
+
+-- Create Message Fields - Defining the message field group as a single field called messageText
+INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (6, 'Message Fields', FALSE);
+INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (9, 'messageText', 'Message Text', 'STRING', NULL, FALSE, null, null, 150, '*', FALSE, NULL, FALSE, 6, 0);
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- Structured Content Step 2:   Create Templates.     The examples below create field templates for Ads, Messages, and HTML blocks.
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_SC_FLD_TMPLT(SC_FLD_TMPLT_ID, NAME) VALUES(1, 'Ad Template');
+INSERT INTO BLC_SC_FLD_TMPLT(SC_FLD_TMPLT_ID, NAME) VALUES(2, 'HTML Template');
+INSERT INTO BLC_SC_FLD_TMPLT(SC_FLD_TMPLT_ID, NAME) VALUES(3, 'Message Template');
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- Structured Content Step 3:   Add Field Groups to Templates
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_SC_FLDGRP_XREF(SC_FLD_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (1,4,0);
+INSERT INTO BLC_SC_FLDGRP_XREF(SC_FLD_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (2,5,0);
+INSERT INTO BLC_SC_FLDGRP_XREF(SC_FLD_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (3,6,0);
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- Structured Content Step 4:   Create Types (These represent areas on a page or general types:  e.g 'Homepage Banner Ad')
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (1, 'Homepage Banner Ad', NULL, 1);
+INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (2, 'Homepage Middle Promo Snippet', NULL, 2);
+INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (3, 'Homepage Featured Products Title', NULL, 3);
+INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (4, 'Right Hand Side Banner Ad', NULL, 1);
+
 --
 -- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
 --
@@ -1416,328 +1660,6 @@ INSERT INTO BLC_FULFILLMENT_OPTION (FULFILLMENT_OPTION_ID, NAME, LONG_DESCRIPTIO
 INSERT INTO BLC_FULFILLMENT_OPTION_FIXED (FULFILLMENT_OPTION_ID, PRICE) VALUES (1, 5.00);
 INSERT INTO BLC_FULFILLMENT_OPTION_FIXED (FULFILLMENT_OPTION_ID, PRICE) VALUES (2, 10.00);
 INSERT INTO BLC_FULFILLMENT_OPTION_FIXED (FULFILLMENT_OPTION_ID, PRICE) VALUES (3, 20.00);
------------------------------------------------------------------------------------------------------------------------------------
--- SPANISH TRANSLATION DATA
--- Translates the catalog and content for the demo application to spanish.
--- Uses translation ids ranging from -1 to -199
------------------------------------------------------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------------------------------------------------------
--- CATEGORY DATA TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
--- Category names
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-1, 2001, 'es', 'Category', 'name', 'Inicio');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-2, 2002, 'es', 'Category', 'name', 'Salsas');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-3, 2003, 'es', 'Category', 'name', 'Mercanc&iacute;a');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-4, 2004, 'es', 'Category', 'name', 'Descuento');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-5, 2005, 'es', 'Category', 'name', 'Nuevo a la Salsa?');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-6, 2006, 'es', 'Category', 'name', 'FAQ');                     
--- Category descriptions
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-11, 2001, 'es', 'Category', 'description', 'Inicio');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-12, 2002, 'es', 'Category', 'description', 'Salsas Picantes');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-13, 2003, 'es', 'Category', 'description', 'Mercanc&iacute;a');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-14, 2004, 'es', 'Category', 'description', 'Descuento');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-15, 2005, 'es', 'Category', 'description', 'Iniciando con Salsas?');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-16, 2006, 'es', 'Category', 'description', 'FAQ');                     
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- PRODUCT OPTIONS TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-31, 1, 'es', 'ProdOption', 'label', 'Color de Camisa');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-32, 2, 'es', 'ProdOption', 'label', 'Tama&ntilde;o de Camisa');
-
------------------------------------------------------------------------------------------------------------------------------------
--- PRODUCT OPTION VALUES TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-41, 1, 'es', 'ProdOptionVal', 'attributeValue', 'Negro');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-42, 2, 'es', 'ProdOptionVal', 'attributeValue', 'Rojo');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-43, 3, 'es', 'ProdOptionVal', 'attributeValue', 'Plateado');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-44, 11, 'es', 'ProdOptionVal', 'attributeValue', 'CH');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-45, 12, 'es', 'ProdOptionVal', 'attributeValue', 'M');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-46, 13, 'es', 'ProdOptionVal', 'attributeValue', 'G');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-47, 14, 'es', 'ProdOptionVal', 'attributeValue', 'XG');
-
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- PRODUCT SKU TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-51, 1, 'es', 'Sku', 'name', 'Salsa de la Muerte S&uacute;bita');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-52, 1, 'es', 'Sku', 'longDescription', 'Como mis amigos salseros saben, nunca soy f&aacute;cil de satisfacer. Por lo tanto, naci&oacute; la creaci&oacute;n de la Muerte S&uacute;bita. Cuando este listo para saborear al m&aacute;s all&aacute; ... Muerte s&uacute;bita entregar&aacute;!');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-53, 2, 'es', 'Sku', 'name', 'Salsa de la Muerte Dulce');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-54, 2, 'es', 'Sku', 'longDescription', 'El perfecto acompa&ntilde;ante para el pollo, el pescado, hamburguesas o pizza. Una gran mezcla de habanero, mango, fruta de la pasi&oacute;n y mucho m&aacute;s hacen de esta salsa de la Muerte una delicia tropical incre&iacute;ble.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-55, 3, 'es', 'Sku', 'name', 'Salsa de la Muerte Saltante');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-56, 3, 'es', 'Sku', 'longDescription', 'Picante, maduro pimienta que se mezcla junto con el ajo, la cebolla, pasta de tomate y una pizca de az&uacute;car de ca&ntilde;a para hacer de esto una salsa suave. Maravilloso en huevos, aves de corral, carne de cerdo o pescado, esta salsa se ​​mezcla para hacer los adobos y sopas ricas.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-57, 4, 'es', 'Sku', 'name', 'Salsa del D&iacute;a de los Muertos de Chipotle');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-58, 4, 'es', 'Sku', 'longDescription', 'Cuando cualquier pimienta se seca y se fuma, se refiere como un Chipotle. Por lo general, con una apariencia arrugada, caf&eacute; oscuro, el Chipotle ofrece un sabor ahumado y dulce que se utiliza generalmente para agregar un sabor asado a las salsas, guisos y adobos.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-59, 5, 'es', 'Sku', 'name', 'Salsa del D&iacute;a de los Muertos de Habanero');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-60, 5, 'es', 'Sku', 'longDescription', 'Si quieres picante, este es el Chile a elegir. Originario del Caribe, Yucat&aacute;n y la Costa norte de Am&eacute;rica del Sur, el habanero se presenta en una variedad de colores que van desde el verde claro a un rojo brillante. El calor, sabor y aroma &uacute;nicos del Habanero ha convertido el chile en el favorito de los amantes del picante.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-61, 6, 'es', 'Sku', 'name', 'Salsa del D&iacute;a de los Muertos de Bonnet Escoc&eacute;s');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-62, 6, 'es', 'Sku', 'longDescription', 'Parecido al Habanero, el Bonnet Escoc&eacute;s tiene una punta profundamente invertidas en comparaci&oacute;n con el extremo puntiagudo del Habanero. Van en colores de verde a amarillo-naranja, el Bonnet Escoc&eacute;s es un alimento b&aacute;sico en West Indies, en Barbados y salsas estilo pimienta.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-63, 7, 'es', 'Sku', 'name', 'Fantasma Verde');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-64, 7, 'es', 'Sku', 'longDescription', 'Hecho con Naga Jolokia Bhut, el chile m&aacute;s picante del mundo.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-65, 8, 'es', 'Sku', 'name', 'Salsa de Habanero de la Silla Ardiente');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-66, 8, 'es', 'Sku', 'longDescription', 'Esta salsa caliente recibe su nombre por la gente que aprecian una salsa picante. Lo que vas a encontrar aquí es un sabor picante realmente original, no una acritud abrumador que se encuentra en las salsas de chile Tabasco ordinarios - a pesar de la pimienta usado en este producto ha sido probado en 285.000 unidades Scoville. Por lo tanto, ensillar a dar un paseo para recordar. Para asegurarnos de que usted trajo s&oacute;lo la mejor salsa de pimiento habanero, nos fuimos a las faldas de las monta&ntilde;as mayas en Belice, Am&eacute;rica Central. Este producto se prepara totalmente a mano utilizando s&oacute;lo las verduras frescas y solo ingredientes naturales.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-67, 9, 'es', 'Sku', 'name', 'Fin del Mundo Salsa');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-68, 9, 'es', 'Sku', 'longDescription', 'Todo el infierno se ha desatado, fuego y azufre. Est&aacute; listo para el fin?');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-69, 10, 'es', 'Sku', 'name', 'Salsa Loca del Dr. Chilemeister');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-70, 10, 'es', 'Sku', 'longDescription', 'Aquí est&aacute; la receta para aquellos que disfrutan de picante intolerable. Esta salsa macabra y mortal del Dr. Chilemeister se debe utilizar con precauci&oacute;n. El dolor puede llegar a ser adictivo!');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-71, 11, 'es', 'Sku', 'name', 'Salsa Picante del Vaquero');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-72, 11, 'es', 'Sku', 'longDescription', 'Espolvorear con platos de carne, pescado y verduras. Use como aditivo en la salsa de barbacoa o cualquier alimento que necesita un sabor picante. Comience con unas gotas y aumente hasta llegar al sabor deseado.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-73, 12, 'es', 'Sku', 'name', 'Salsa Dulce de Cajun de Lousiane');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-74, 12, 'es', 'Sku', 'longDescription', 'Una de las salsas m&aacute;s inusuales que vendemos. La original era un viejo estilo salsa caj&uacute;n y esto versi&oacute;n actualizada ennegrecimiento. Es dulce, pero se obtiene un gran sabor de canela y clavo de olor con un tiro agradable de piacnte de Cayena. Use en todos los alimentos para dar ese toque caj&uacute;n.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-75, 13, 'es', 'Sku', 'name', 'Salsa Mata-Gargantas de Bull Snort');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-76, 13, 'es', 'Sku', 'longDescription', 'Todo es m&aacute;s grande en Texas, incluso lo picante de la Salsa de Snortin Bull! Si usted es un fan de hacer la salsa de barbacoa a partir de cero, como yo, puede utilizar la Salsa de Snortin Bull como aditivo. Habaneros ardientes y los pimientos de cayena dan a la garganta un sabor y calor al rojo vivo.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-77, 14, 'es', 'Sku', 'name', 'Salsa de Cayene Fresco');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-78, 14, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-79, 15, 'es', 'Sku', 'name', 'Salsa de Ajo Tostado');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-80, 15, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-81, 16, 'es', 'Sku', 'name', 'Salsa de Locura');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-82, 16, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-83, 17, 'es', 'Sku', 'name', 'Salsa de Locura');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-84, 17, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-85, 18, 'es', 'Sku', 'name', 'Salsa de Jalape&ntilde;o Ardiente');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-86, 18, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-87, 19, 'es', 'Sku', 'name', 'Salsa de Pimienta Roja y Chipotle');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-88, 19, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
-
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-89, 100, 'es', 'Sku', 'name', 'Camisa de Habanero Hawt (Hombres)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-90, 100, 'es', 'Sku', 'longDescription', 'Colecci&oacute;n de Hombres Habanero est&aacute;ndar de manga corta serigrafiadas, camiseta de algod&oacute;n suave en ajuste normal.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-91, 200, 'es', 'Sku', 'name', 'Camisa de Habanero Hawt (Mujeres)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-92, 200, 'es', 'Sku', 'longDescription', 'Colecci&oacute;n de Mujeres Habanero est&aacute;ndar de manga corta serigrafiadas, camiseta de algod&oacute;n suave en ajuste normal.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-93, 300, 'es', 'Sku', 'name', 'Heat Clinic dibujado a mano (Hombres)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-94, 300, 'es', 'Sku', 'longDescription', 'Esta camiseta tiene el logo dibujado a mano para hombres, ofrece un ajuste regular en tres colores diferentes.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-95, 400, 'es', 'Sku', 'name', 'Heat Clinic dibujado a mano (Mujeres)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-96, 400, 'es', 'Sku', 'longDescription', 'Esta camiseta tiene el logo dibujado a mano para hombres, ofrece un ajuste regular en tres colores diferentes.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-97, 500, 'es', 'Sku', 'name', 'Mascota de Heat Clinic (Hombres)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-98, 500, 'es', 'Sku', 'longDescription', '&iquest;No te encanta nuestra mascota? Compre su propia camiseta hoy!');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-99, 600, 'es', 'Sku', 'name', 'Mascota de Heat Clinic (Mujeres)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-100, 600, 'es', 'Sku', 'longDescription', '&iquest;No te encanta nuestra mascota? Compre su propia camiseta hoy!');
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- SEARCH FACET TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-180, 1, 'es', 'SearchFacet', 'label', 'Fabricante');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-181, 2, 'es', 'SearchFacet', 'label', 'Rango de Calor');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-182, 3, 'es', 'SearchFacet', 'label', 'Precio');
-
------------------------------------------------------------------------------------------------------------------------------------
--- FULFILLMENT OPTIONS TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-191, 1, 'es', 'FulfillmentOption', 'name', 'Estándar');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-192, 1, 'es', 'FulfillmentOption', 'longDescription', '5 - 7 D&iacute;as');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-193, 2, 'es', 'FulfillmentOption', 'name', 'Ejecutiva');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-194, 2, 'es', 'FulfillmentOption', 'longDescription', '3 - 5 D&iacute;as');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-195, 3, 'es', 'FulfillmentOption', 'name', 'Express');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-196, 3, 'es', 'FulfillmentOption', 'longDescription', '1 - 2 D&iacute;as');
------------------------------------------------------------------------------------------------------------------------------------
--- FRENCH TRANSLATION DATA
--- Translates the catalog and content for the demo application to french.
--- Uses translation ids ranging from -200 to -399
------------------------------------------------------------------------------------------------------------------------------------
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- CATEGORY DATA TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
--- Category names
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-201, 2001, 'fr', 'Category', 'name', 'Page d''accueil');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-202, 2002, 'fr', 'Category', 'name', 'Sauces chaudfr');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-203, 2003, 'fr', 'Category', 'name', 'Marchandisfr');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-204, 2004, 'fr', 'Category', 'name', 'D&eacute;gagement');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-205, 2005, 'fr', 'Category', 'name', 'Nouveau Hot Sauce?');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-206, 2006, 'fr', 'Category', 'name', 'FAQ');                     
--- Category descriptions
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-211, 2001, 'fr', 'Category', 'description', 'Page d''accueil');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-212, 2002, 'fr', 'Category', 'description', 'Sauces chaudfr');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-213, 2003, 'fr', 'Category', 'description', 'Marchandisfr');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-214, 2004, 'fr', 'Category', 'description', 'D&eacute;gagement');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-215, 2005, 'fr', 'Category', 'description', 'Nouveau Hot Sauce?');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-216, 2006, 'fr', 'Category', 'description', 'FAQ');
-
------------------------------------------------------------------------------------------------------------------------------------
--- PRODUCT OPTIONS TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-231, 1, 'fr', 'ProdOption', 'label', 'Shirt Couleur');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-232, 2, 'fr', 'ProdOption', 'label', 'Shirt Taille');
-
------------------------------------------------------------------------------------------------------------------------------------
--- PRODUCT OPTION VALUES TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-241, 1, 'fr', 'ProdOptionVal', 'attributeValue', 'Noir');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-242, 2, 'fr', 'ProdOptionVal', 'attributeValue', 'Rouge');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-243, 3, 'fr', 'ProdOptionVal', 'attributeValue', 'Argent');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-244, 11, 'fr', 'ProdOptionVal', 'attributeValue', 'P');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-245, 12, 'fr', 'ProdOptionVal', 'attributeValue', 'M');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-246, 13, 'fr', 'ProdOptionVal', 'attributeValue', 'G');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-247, 14, 'fr', 'ProdOptionVal', 'attributeValue', 'XG');
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- PRODUCT SKU TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-251, 1, 'fr', 'Sku', 'name', 'Sauce mort subite');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-252, 1, 'fr', 'Sku', 'longDescription', 'Comme mes Chilipals sais, je suis pas du genre &agrave; &ecirc;tre satisfaite. Par cons&eacute;quent, la cr&eacute;ation de la mort subite. Lorsque vous avez besoin d''aller au-del&agrave; ... Mort subite livrera!');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-253, 2, 'fr', 'Sku', 'name', 'Sauce Sweet Death');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-254, 2, 'fr', 'Sku', 'longDescription', 'Le parfait topper pour le poulet, le poisson, des hamburgers ou une pizza. Un grand m&eacute;lange de Habanero, mangue, fruits de la passion et de plus faire cette sauce Mort d''un festin incroyable tropicale');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-255, 3, 'fr', 'Sku', 'name', 'Hot Sauce Hoppin');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-256, 3, 'fr', 'Sku', 'longDescription', 'Tangy, venu de Cayenne poivron flux avec l''ail, l''oignon p&acirc;te de tomate, et un soupçon de sucre de canne pour en faire une sauce onctueuse avec une morsure. Magnifique sur les œufs, la volaille, le porc ou le poisson, cette sauce marie pour faire des marinades et des soupes riches.');                                                                                                                                                                  
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-257, 4, 'fr', 'Sku', 'name', 'Jour de la sauce chaude Morte Chipotle');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-258, 4, 'fr', 'Sku', 'longDescription', 'Lorsque tout le poivre est s&eacute;ch&eacute; et fum&eacute;, il est consid&eacute;r&eacute; comme un Chipotle. Normalement, avec un aspect froiss&eacute;, drak brun, le chipotle fum&eacute; offre une saveur douce qui est g&eacute;n&eacute;ralement utilis&eacute; pour ajouter un smokey, saveur rôtie aux salsas, les ragoûts et marinades.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-259, 5, 'fr', 'Sku', 'name', 'Jour de la sauce Habanero Hot Morte');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-260, 5, 'fr', 'Sku', 'longDescription', 'Si vous voulez chaud, c''est le piment de choisir. Originaire de la Caraïbe, du Yucatan et du Nord Côte de l''Am&eacute;rique du Sud, le Habanero se pr&eacute;sente dans une vari&eacute;t&eacute; de couleurs allant du vert p&acirc;le au rouge vif. La chaleur gras Habanero, la saveur et l''arôme unique, en a fait le favori des amateurs de chili.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-261, 6, 'fr', 'Sku', 'name', 'Jour de la sauce Scotch Bonnet Hot Morte');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-262, 6, 'fr', 'Sku', 'longDescription', 'Souvent confondu avec le Habanero, le Scotch Bonnet a une pointe profond&eacute;ment invers&eacute;e par rapport &agrave; l''extr&eacute;mit&eacute; pointue de l''Habanero. Allant dans de nombreuses couleurs allant du vert au jaune-orange, le Scotch Bonnet est un aliment de base dans les Antilles et sauces au poivre de style Barbade.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-263, 7, 'fr', 'Sku', 'name', 'Green Ghost');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-264, 7, 'fr', 'Sku', 'longDescription', 'Fabriqu&eacute; avec Naga Bhut Jolokia, plus chaud poivre dans le monde.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-265, 8, 'fr', 'Sku', 'name', 'Blazin ''Selle XXX Hot Habanero sauce au poivre');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-266, 8, 'fr', 'Sku', 'longDescription', 'Vous misez vos bottes, cette sauce chaude valu son nom de gens qui appr&eacute;cient une sauce chaude exceptionnel. Ce que vous trouverez ici est une saveur piquante vraiment original, pas un piquant irr&eacute;sistible que l''on retrouve dans les sauces au poivre Tabasco ordinaires - m&ecirc;me si le piment utilis&eacute; dans ce produit a &eacute;t&eacute; test&eacute; &agrave; 285.000 unit&eacute;s Scoville. Alors, en selle pour une balade inoubliable. Pour vous assurer que nous vous avons apport&eacute; la plus belle sauce au poivre de Habanero, nous sommes all&eacute;s aux contreforts des montagnes mayas au Belize, en Am&eacute;rique centrale. Ce produit est pr&eacute;par&eacute; enti&egrave;rement &agrave; la main en utilisant uniquement des l&eacute;gumes frais et de tous les ingr&eacute;dients naturels.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-267, 9, 'fr', 'Sku', 'name', 'Armageddon Le Hot Sauce To End All');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-268, 9, 'fr', 'Sku', 'longDescription', 'Tout l''enfer se d&eacute;chaîne, le feu et le soufre pleuvoir? se pr&eacute;parer &agrave; rencontrer votre machine?');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-269, 10, 'fr', 'Sku', 'name', 'Dr Chilemeister Sauce Hot Insane');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-270, 10, 'fr', 'Sku', 'longDescription', 'Voici la prescription pour ceux qui aiment la chaleur intol&eacute;rable. Dr Chilemeister potion de malades et mal mortel doit &ecirc;tre utilis&eacute; avec prudence. La douleur peut devenir une d&eacute;pendance!');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-271, 11, 'fr', 'Sku', 'name', 'Bull Snort Cowboy poivre de Cayenne Hot Sauce');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-272, 11, 'fr', 'Sku', 'longDescription', 'Been there, encord&eacute;s cela. Hotter than jument buckin ''en chaleur! Saupoudrez de plats de viande, de fruits de mer et l&eacute;gumes. Utilisation comme additif dans une sauce barbecue ou tout aliment qui a besoin d''une saveur &eacute;pic&eacute;e. Commencez avec quelques gouttes et travailler jusqu''&agrave; la saveur d&eacute;sir&eacute;e.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-273, 12, 'fr', 'Sku', 'name', 'Caf&eacute; Cajun Louisiane Douce Sauce Blackening');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-274, 12, 'fr', 'Sku', 'longDescription', 'L''une des sauces les plus insolites que nous vendons. L''original &eacute;tait un vieux style sauce cajun et c''est ça le noircissement &agrave; jour de version. C''est gentil, mais vous obtenez un grand succ&egrave;s de cannelle et de clou de girofle avec un coup de chaleur agr&eacute;able de Cayenne. Utilisez-le sur tous les aliments &agrave; donner cette ambiance cajun.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-275, 13, 'fr', 'Sku', 'name', 'Bull Snort Smokin ''Hot Sauce Toncils');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-276, 13, 'fr', 'Sku', 'longDescription', 'Todo es m&aacute;s grande en Texas, incluso lo picante de la Salsa de Snortin Bull! Tout est plus grand au Texas, m&ecirc;me la brûlure de Hot Sauce une Snortin Bull! douche sur le Texas Steak taille qu''ils appellent le 96er Ole ou vos l&eacute;gumes Jane avion. Si vous &ecirc;tes un fan sur faire de la sauce barbecue &agrave; partir de z&eacute;ro comme je suis, vous pouvez utiliser la sauce Bull amygdales Snort Smokin ''Hot tant qu''additif. Red hot habaneros et piments donner &agrave; cette tingler amygdales sa saveur c&eacute;l&egrave;bre et rouge de chaleur chaud. Bull Snort Smokin ''Hot amygdales Sauce''ll avoir vos entrailles buckin »avec une goutte d''eau.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-277, 14, 'fr', 'Sku', 'name', 'Frais Poivre de Cayenne Hot Sauce');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-278, 14, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-279, 15, 'fr', 'Sku', 'name', 'Sauce &agrave; l''ail rôti chaud');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-280, 15, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-281, 16, 'fr', 'Sku', 'name', 'Sauce Scotch Bonnet chaud');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-282, 16, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-283, 17, 'fr', 'Sku', 'name', 'Sauce Scotch Bonnet chaud');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-284, 17, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-285, 18, 'fr', 'Sku', 'name', 'Sauces chaudes Jalapeno');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-286, 18, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-287, 19, 'fr', 'Sku', 'name', 'Sauce chaudes Chipotle');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-288, 19, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
-
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-289, 100, 'fr', 'Sku', 'name', 'Hawt comme une chemise Habanero (Hommes)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-290, 100, 'fr', 'Sku', 'longDescription', 'Collecte Hommes Habanero standards chemise &agrave; manches courtes t s&eacute;rigraphi&eacute;es en 30 coton doux singles en coupe regular.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-291, 200, 'fr', 'Sku', 'name', 'Hawt comme une chemise Habanero (Femmes)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-292, 200, 'fr', 'Sku', 'longDescription', 'Collecte de femmes Habanero standards chemise &agrave; manches courtes shirt s&eacute;rigraphi&eacute; &agrave; 30 coton doux singles en coupe regular.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-293, 300, 'fr', 'Sku', 'name', 'Clinique de chaleur tir&eacute; par la main (Hommes)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-294, 300, 'fr', 'Sku', 'longDescription', 'Ce t-shirt logo dessin&eacute; &agrave; la main pour les hommes dispose d''une coupe r&eacute;guli&egrave;re en trois couleurs diff&eacute;rentes.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-295, 400, 'fr', 'Sku', 'name', 'Clinique de chaleur tir&eacute; par la main (Femmes)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-296, 400, 'fr', 'Sku', 'longDescription', 'Ce t-shirt logo dessin&eacute; &agrave; la main pour les femmes dispose d''une coupe r&eacute;guli&egrave;re en trois couleurs diff&eacute;rentes.');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-297, 500, 'fr', 'Sku', 'name', 'Mascot Clinique chaleur (Hommes)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-298, 500, 'fr', 'Sku', 'longDescription', 'Avez-vous pas juste notre mascotte? Obtenez votre chemise propre aujourd''hui!');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-299, 600, 'fr', 'Sku', 'name', 'Mascot Clinique chaleur (Femmes)');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-300, 600, 'fr', 'Sku', 'longDescription', 'Avez-vous pas juste notre mascotte? Obtenez votre chemise propre aujourd''hui!');
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- SEARCH FACET TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-380, 1, 'fr', 'SearchFacet', 'label', 'Fabricant');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-381, 2, 'fr', 'SearchFacet', 'label', 'Degr&eacute; de chaleur');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-382, 3, 'fr', 'SearchFacet', 'label', 'Prix');
-
-
------------------------------------------------------------------------------------------------------------------------------------
--- FULFILLMENT OPTIONS TRANSLATION
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-391, 1, 'fr', 'FulfillmentOption', 'name', 'Norme');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-392, 1, 'fr', 'FulfillmentOption', 'longDescription', '5 - 7 Journ&eacute;es');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-393, 2, 'fr', 'FulfillmentOption', 'name', 'Priorit&eacute;');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-394, 2, 'fr', 'FulfillmentOption', 'longDescription', '3 - 5 Journ&eacute;es');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-395, 3, 'fr', 'FulfillmentOption', 'name', 'Express');
-INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-396, 3, 'fr', 'FulfillmentOption', 'longDescription', '1 - 2 Journ&eacute;es');--
--- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
---
--- This will cause hibernate to populate the database when the application is started by processing the files that
--- were configured in the hibernate.hbm2ddl.import_files property.
---
--- This file is responsible for loading  out-of-box miscellaneous tables
---
-
--- ???? to do / document me (believe this is for securing pages through the site web.app
-INSERT INTO BLC_ROLE (ROLE_ID, ROLE_NAME) VALUES (1,'ROLE_USER');
-
--- ???? to do / document me
-INSERT INTO BLC_ID_GENERATION (ID_TYPE, BATCH_SIZE, BATCH_START, VERSION) VALUES ('org.broadleafcommerce.profile.core.domain.Customer',100,100,1);
-
--- Sample challenge questions
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (1,'What is your favorite sports team?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (2,'What was your high school name?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (3,'What was your childhood nickname?'); 
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (4,'What street did you live on in third grade?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (5,'What is your oldest sibling''s middle name?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (6,'What school did you attend for sixth grade?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (7,'Where does your nearest sibling live?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (8,'What is your youngest brother''s birthday?');
-INSERT INTO BLC_CHALLENGE_QUESTION (QUESTION_ID, QUESTION) VALUES (9,'In what city or town was your first job?');
-
--- Sample countries.  To do, where is this used?
-INSERT INTO BLC_COUNTRY VALUES ('US','United States');
-INSERT INTO BLC_COUNTRY VALUES ('CA','Canada');
-INSERT INTO BLC_COUNTRY VALUES ('MX','Mexico');
-
--- Sample state list.  To do, where is this used
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ALABAMA','AL','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ALASKA','AK','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('AMERICAN SAMOA','AS','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ARIZONA','AZ','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ARKANSAS','AR','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('CALIFORNIA','CA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('COLORADO','CO','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('CONNECTICUT','CT','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('DELAWARE','DE','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('DISTRICT OF COLUMBIA','DC','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('FEDERATED STATES OF MICRONESIA','FM','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('FLORIDA','FL','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('GEORGIA','GA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('GUAM','GU','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('HAWAII','HI','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('IDAHO','ID','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('ILLINOIS','IL','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('INDIANA','IN','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('IOWA','IA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('KANSAS','KS','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('KENTUCKY','KY','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('LOUISIANA','LA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MAINE','ME','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MARSHALL ISLANDS','MH','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MARYLAND','MD','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MASSACHUSETTS','MA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MICHIGAN','MI','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MINNESOTA','MN','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MISSISSIPPI','MS','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MISSOURI','MO','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('MONTANA','MT','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEBRASKA','NE','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEVADA','NV','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW HAMPSHIRE','NH','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW JERSEY','NJ','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW MEXICO','NM','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NEW YORK','NY','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NORTH CAROLINA','NC','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NORTH DAKOTA','ND','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('NORTHERN MARIANA ISLANDS','MP','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('OHIO','OH','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('OKLAHOMA','OK','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('OREGON','OR','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('PALAU','PW','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('PENNSYLVANIA','PA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('PUERTO RICO','PR','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('RHODE ISLAND','RI','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('SOUTH CAROLINA','SC','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('SOUTH DAKOTA','SD','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('TENNESSEE','TN','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('TEXAS','TX','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('UTAH','UT','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('VERMONT','VT','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('VIRGIN ISLANDS','VI','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('VIRGINIA','VA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WASHINGTON','WA','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WEST VIRGINIA','WV','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WISCONSIN','WI','US');
-INSERT INTO BLC_STATE (NAME, ABBREVIATION, COUNTRY) VALUES ('WYOMING','WY','US');
 --
 -- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
 --
@@ -1842,6 +1764,52 @@ INSERT INTO BLC_SC_FLD (SC_FLD_ID, DATE_CREATED, FLD_KEY, CREATED_BY, VALUE) VAL
 -- Field XREF
 INSERT INTO BLC_SC_FLD_MAP (SC_ID, SC_FLD_ID, MAP_KEY) VALUES (140, 12, 'imageUrl');
 INSERT INTO BLC_SC_FLD_MAP (SC_ID, SC_FLD_ID, MAP_KEY) VALUES (140, 13, 'targetUrl');
+--
+-- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
+--
+-- This will cause hibernate to populate the database when the application is started by processing the files that
+-- were configured in the hibernate.hbm2ddl.import_files property.
+--
+-- This file is responsible for loading international data the pricelist data in multiple currencies.  Implementers can exclude this file
+-- to load their own international data.
+--
+
+--
+-- Load currencies:  Your site will need currencies defined in order to use price lists.
+-- i18n standard abbreviations should be used.
+--
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('GBP', 'GB Pound', FALSE);
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('MXN', 'Mexican Peso', FALSE);
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('EUR', 'EURO Dollar', FALSE);
+
+
+
+--
+-- Load Locales:  Your site must have at least one Locale with DEFAULT_FLAG set to TRUE
+-- You can have as many locales as you like. Currency can be set  to null if none have
+-- been defined. i18n standard abbreviations should be used.
+--
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('es', FALSE, 'Spanish', 'EUR');
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('fr', FALSE, 'French', 'EUR');
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('en_GB', FALSE,'English (United Kingdom)', 'GBP');
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('es_MX', FALSE, 'Spanish (Mexico)', 'MXN');
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('es_ES', FALSE, 'Spanish (Spain)', 'EUR');
+INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('fr_FR', FALSE,'French (France)', 'EUR');
+
+
+--
+-- The following items create page templates.   The key is to map a JSP template (TMPLT_PATH) to
+-- a LOCALE_CODE.   In the example below, there is only one JSP template "basic".   The full
+-- path to the template is .../WEB_INF/jsp/templates/basic.jsp.
+--
+INSERT INTO BLC_PAGE_TMPLT (PAGE_TMPLT_ID, LOCALE_CODE, TMPLT_NAME, TMPLT_DESCR, TMPLT_PATH) VALUES (2, 'es', 'Basic Spanish Template', 'This template provides a basic layout with header and footer surrounding the content and title.', '/content/default') ;
+
+--
+-- Map both the spanish template to this field group.
+--
+INSERT INTO BLC_PGTMPLT_FLDGRP_XREF(PAGE_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (2,1,0);
+
+
 --
 -- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
 --
@@ -1972,148 +1940,237 @@ INSERT INTO BLC_SC_FLD_MAP (SC_ID, SC_FLD_ID, MAP_KEY) VALUES (156, 58, 'message
 -- Fields
 
 -- Field XREF
---
--- The Sample Project is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
---
--- This will cause hibernate to populate the database when the application is started by processing the files that
--- were configured in the hibernate.hbm2ddl.import_files property.
---
--- This file is responsible for creating the content structure which includes page-types (e.g. template
--- mappings) and structured-content-types (e.g. ad placement among other things).
---
-
---
--- Load Currencies:  Your site will need currencies defined in order to use price lists.
--- Currencies need to be defined before locale if they are using a currency code.
--- i18n standard abbreviations should be used.
---
-INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('USD', 'US Dollar', TRUE);
-
---
--- Load Locales:  Your site must have at least one Locale with DEFAULT_FLAG set to TRUE
--- You can have as many locales as you like. Currency can be set  to null if none have
--- been defined. i18n standard abbreviations should be used.
---
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('en_US', TRUE, 'English US', 'USD');
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('en', FALSE, 'English', 'USD');
-
---
--- The following items create page templates.    
--- In the example below, there is only one page templates "basic" providing a header, footer, and sidebar around the content
--- The full path to the template is .../WEB_INF/jsp/templates/content/default.html
-INSERT INTO BLC_PAGE_TMPLT (PAGE_TMPLT_ID, TMPLT_NAME, TMPLT_DESCR, TMPLT_PATH) VALUES (1, 'Default Template', 'Provides a basic layout with header and footer surrounding the content and title.', '/content/default') ;
-
---
--- Field groups define a list of dynamic fields.    Field groups can be associated with page
--- templates or structured content types.    The field group below defines two fields named
--- "body", which is a rich text edit field, and "title", which is a string field.
--- This will tell the Broadleaf admin how to generate the view for a given template
---
-INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (1, 'Content', FALSE);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (3, 'title', 'Title', 'STRING', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, 1, 0);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (2, 'body', 'Body', 'HTML', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, 1, 1);
-
---
--- Map both templates to the field groups
---
-INSERT INTO BLC_PGTMPLT_FLDGRP_XREF(PAGE_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (1,1,0);
-
---  
--- NONE template
--- 
--- note id 2 is in i18n file
-INSERT INTO BLC_PAGE_TMPLT (PAGE_TMPLT_ID, TMPLT_NAME, TMPLT_DESCR, TMPLT_PATH) VALUES (-3, 'NONE', 'Outputs the body field.', 'NONE') ;
-INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (-3, 'None', FALSE);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (-1, 'body', 'File Contents', 'HTML', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, -3, 0);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (-2, 'plainText', 'Plain Text', 'BOOLEAN', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, -3, 1);
-
-INSERT INTO BLC_PGTMPLT_FLDGRP_XREF(PAGE_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (-3, -3 ,0);
-
 -----------------------------------------------------------------------------------------------------------------------------------
--- Structured Content Step 1:   Create Structured Content Field Groups
+-- FRENCH TRANSLATION DATA
+-- Translates the catalog and content for the demo application to french.
+-- Uses translation ids ranging from -200 to -399
 -----------------------------------------------------------------------------------------------------------------------------------
--- Create Ad Fields - Defining the ad field group as a group of two fields: Image URL and Target URL
-INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (4, 'Ad Fields', FALSE);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (7, 'imageUrl', 'Image URL', 'STRING', NULL, FALSE, null, null, 150, '*', FALSE, NULL, FALSE, 4, 0);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (8, 'targetUrl', 'Target URL', 'STRING', NULL, FALSE, null, null, 150, '*', FALSE, NULL, FALSE, 4, 1);
-
--- Create HTML Fields - Defining the message field group as a single field called messageText
-INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (5, 'HTML Fields', FALSE);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (10, 'htmlContent', 'HTML Content', 'HTML', NULL, FALSE, null, null, null, '*', FALSE, NULL, FALSE, 5, 0);
-
--- Create Message Fields - Defining the message field group as a single field called messageText
-INSERT INTO BLC_FLD_GROUP(FLD_GROUP_ID, NAME, INIT_COLLAPSED_FLAG) VALUES (6, 'Message Fields', FALSE);
-INSERT INTO BLC_FLD_DEF(FLD_DEF_ID, NAME, FRIENDLY_NAME, FLD_TYPE, SECURITY_LEVEL, HIDDEN_FLAG, VLDTN_REGEX, VLDTN_ERROR_MSSG_KEY, MAX_LENGTH, COLUMN_WIDTH, TEXT_AREA_FLAG, ENUM_ID, ALLOW_MULTIPLES, FLD_GROUP_ID, FLD_ORDER) VALUES (9, 'messageText', 'Message Text', 'STRING', NULL, FALSE, null, null, 150, '*', FALSE, NULL, FALSE, 6, 0);
-
------------------------------------------------------------------------------------------------------------------------------------
--- Structured Content Step 2:   Create Templates.     The examples below create field templates for Ads, Messages, and HTML blocks.
------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_SC_FLD_TMPLT(SC_FLD_TMPLT_ID, NAME) VALUES(1, 'Ad Template');
-INSERT INTO BLC_SC_FLD_TMPLT(SC_FLD_TMPLT_ID, NAME) VALUES(2, 'HTML Template');
-INSERT INTO BLC_SC_FLD_TMPLT(SC_FLD_TMPLT_ID, NAME) VALUES(3, 'Message Template');
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
--- Structured Content Step 3:   Add Field Groups to Templates
+-- CATEGORY DATA TRANSLATION
 -----------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_SC_FLDGRP_XREF(SC_FLD_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (1,4,0);
-INSERT INTO BLC_SC_FLDGRP_XREF(SC_FLD_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (2,5,0);
-INSERT INTO BLC_SC_FLDGRP_XREF(SC_FLD_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (3,6,0);
+-- Category names
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-201, 2001, 'fr', 'Category', 'name', 'Page d''accueil');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-202, 2002, 'fr', 'Category', 'name', 'Sauces chaudfr');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-203, 2003, 'fr', 'Category', 'name', 'Marchandisfr');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-204, 2004, 'fr', 'Category', 'name', 'D&eacute;gagement');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-205, 2005, 'fr', 'Category', 'name', 'Nouveau Hot Sauce?');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-206, 2006, 'fr', 'Category', 'name', 'FAQ');                     
+-- Category descriptions
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-211, 2001, 'fr', 'Category', 'description', 'Page d''accueil');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-212, 2002, 'fr', 'Category', 'description', 'Sauces chaudfr');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-213, 2003, 'fr', 'Category', 'description', 'Marchandisfr');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-214, 2004, 'fr', 'Category', 'description', 'D&eacute;gagement');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-215, 2005, 'fr', 'Category', 'description', 'Nouveau Hot Sauce?');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-216, 2006, 'fr', 'Category', 'description', 'FAQ');
 
 -----------------------------------------------------------------------------------------------------------------------------------
--- Structured Content Step 4:   Create Types (These represent areas on a page or general types:  e.g 'Homepage Banner Ad')
+-- PRODUCT OPTIONS TRANSLATION
 -----------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (1, 'Homepage Banner Ad', NULL, 1);
-INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (2, 'Homepage Middle Promo Snippet', NULL, 2);
-INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (3, 'Homepage Featured Products Title', NULL, 3);
-INSERT INTO BLC_SC_TYPE (SC_TYPE_ID, NAME, DESCRIPTION, SC_FLD_TMPLT_ID) VALUES (4, 'Right Hand Side Banner Ad', NULL, 1);
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-231, 1, 'fr', 'ProdOption', 'label', 'Shirt Couleur');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-232, 2, 'fr', 'ProdOption', 'label', 'Shirt Taille');
 
---
--- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
---
--- This will cause hibernate to populate the database when the application is started by processing the files that
--- were configured in the hibernate.hbm2ddl.import_files property.
---
--- This file is responsible for loading international data the pricelist data in multiple currencies.  Implementers can exclude this file
--- to load their own international data.
---
-
---
--- Load currencies:  Your site will need currencies defined in order to use price lists.
--- i18n standard abbreviations should be used.
---
-INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('GBP', 'GB Pound', FALSE);
-INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('MXN', 'Mexican Peso', FALSE);
-INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('EUR', 'EURO Dollar', FALSE);
+-----------------------------------------------------------------------------------------------------------------------------------
+-- PRODUCT OPTION VALUES TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-241, 1, 'fr', 'ProdOptionVal', 'attributeValue', 'Noir');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-242, 2, 'fr', 'ProdOptionVal', 'attributeValue', 'Rouge');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-243, 3, 'fr', 'ProdOptionVal', 'attributeValue', 'Argent');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-244, 11, 'fr', 'ProdOptionVal', 'attributeValue', 'P');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-245, 12, 'fr', 'ProdOptionVal', 'attributeValue', 'M');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-246, 13, 'fr', 'ProdOptionVal', 'attributeValue', 'G');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-247, 14, 'fr', 'ProdOptionVal', 'attributeValue', 'XG');
 
 
+-----------------------------------------------------------------------------------------------------------------------------------
+-- PRODUCT SKU TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-251, 1, 'fr', 'Sku', 'name', 'Sauce mort subite');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-252, 1, 'fr', 'Sku', 'longDescription', 'Comme mes Chilipals sais, je suis pas du genre &agrave; &ecirc;tre satisfaite. Par cons&eacute;quent, la cr&eacute;ation de la mort subite. Lorsque vous avez besoin d''aller au-del&agrave; ... Mort subite livrera!');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-253, 2, 'fr', 'Sku', 'name', 'Sauce Sweet Death');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-254, 2, 'fr', 'Sku', 'longDescription', 'Le parfait topper pour le poulet, le poisson, des hamburgers ou une pizza. Un grand m&eacute;lange de Habanero, mangue, fruits de la passion et de plus faire cette sauce Mort d''un festin incroyable tropicale');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-255, 3, 'fr', 'Sku', 'name', 'Hot Sauce Hoppin');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-256, 3, 'fr', 'Sku', 'longDescription', 'Tangy, venu de Cayenne poivron flux avec l''ail, l''oignon p&acirc;te de tomate, et un soupçon de sucre de canne pour en faire une sauce onctueuse avec une morsure. Magnifique sur les œufs, la volaille, le porc ou le poisson, cette sauce marie pour faire des marinades et des soupes riches.');                                                                                                                                                                  
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-257, 4, 'fr', 'Sku', 'name', 'Jour de la sauce chaude Morte Chipotle');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-258, 4, 'fr', 'Sku', 'longDescription', 'Lorsque tout le poivre est s&eacute;ch&eacute; et fum&eacute;, il est consid&eacute;r&eacute; comme un Chipotle. Normalement, avec un aspect froiss&eacute;, drak brun, le chipotle fum&eacute; offre une saveur douce qui est g&eacute;n&eacute;ralement utilis&eacute; pour ajouter un smokey, saveur rôtie aux salsas, les ragoûts et marinades.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-259, 5, 'fr', 'Sku', 'name', 'Jour de la sauce Habanero Hot Morte');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-260, 5, 'fr', 'Sku', 'longDescription', 'Si vous voulez chaud, c''est le piment de choisir. Originaire de la Caraïbe, du Yucatan et du Nord Côte de l''Am&eacute;rique du Sud, le Habanero se pr&eacute;sente dans une vari&eacute;t&eacute; de couleurs allant du vert p&acirc;le au rouge vif. La chaleur gras Habanero, la saveur et l''arôme unique, en a fait le favori des amateurs de chili.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-261, 6, 'fr', 'Sku', 'name', 'Jour de la sauce Scotch Bonnet Hot Morte');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-262, 6, 'fr', 'Sku', 'longDescription', 'Souvent confondu avec le Habanero, le Scotch Bonnet a une pointe profond&eacute;ment invers&eacute;e par rapport &agrave; l''extr&eacute;mit&eacute; pointue de l''Habanero. Allant dans de nombreuses couleurs allant du vert au jaune-orange, le Scotch Bonnet est un aliment de base dans les Antilles et sauces au poivre de style Barbade.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-263, 7, 'fr', 'Sku', 'name', 'Green Ghost');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-264, 7, 'fr', 'Sku', 'longDescription', 'Fabriqu&eacute; avec Naga Bhut Jolokia, plus chaud poivre dans le monde.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-265, 8, 'fr', 'Sku', 'name', 'Blazin ''Selle XXX Hot Habanero sauce au poivre');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-266, 8, 'fr', 'Sku', 'longDescription', 'Vous misez vos bottes, cette sauce chaude valu son nom de gens qui appr&eacute;cient une sauce chaude exceptionnel. Ce que vous trouverez ici est une saveur piquante vraiment original, pas un piquant irr&eacute;sistible que l''on retrouve dans les sauces au poivre Tabasco ordinaires - m&ecirc;me si le piment utilis&eacute; dans ce produit a &eacute;t&eacute; test&eacute; &agrave; 285.000 unit&eacute;s Scoville. Alors, en selle pour une balade inoubliable. Pour vous assurer que nous vous avons apport&eacute; la plus belle sauce au poivre de Habanero, nous sommes all&eacute;s aux contreforts des montagnes mayas au Belize, en Am&eacute;rique centrale. Ce produit est pr&eacute;par&eacute; enti&egrave;rement &agrave; la main en utilisant uniquement des l&eacute;gumes frais et de tous les ingr&eacute;dients naturels.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-267, 9, 'fr', 'Sku', 'name', 'Armageddon Le Hot Sauce To End All');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-268, 9, 'fr', 'Sku', 'longDescription', 'Tout l''enfer se d&eacute;chaîne, le feu et le soufre pleuvoir? se pr&eacute;parer &agrave; rencontrer votre machine?');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-269, 10, 'fr', 'Sku', 'name', 'Dr Chilemeister Sauce Hot Insane');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-270, 10, 'fr', 'Sku', 'longDescription', 'Voici la prescription pour ceux qui aiment la chaleur intol&eacute;rable. Dr Chilemeister potion de malades et mal mortel doit &ecirc;tre utilis&eacute; avec prudence. La douleur peut devenir une d&eacute;pendance!');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-271, 11, 'fr', 'Sku', 'name', 'Bull Snort Cowboy poivre de Cayenne Hot Sauce');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-272, 11, 'fr', 'Sku', 'longDescription', 'Been there, encord&eacute;s cela. Hotter than jument buckin ''en chaleur! Saupoudrez de plats de viande, de fruits de mer et l&eacute;gumes. Utilisation comme additif dans une sauce barbecue ou tout aliment qui a besoin d''une saveur &eacute;pic&eacute;e. Commencez avec quelques gouttes et travailler jusqu''&agrave; la saveur d&eacute;sir&eacute;e.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-273, 12, 'fr', 'Sku', 'name', 'Caf&eacute; Cajun Louisiane Douce Sauce Blackening');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-274, 12, 'fr', 'Sku', 'longDescription', 'L''une des sauces les plus insolites que nous vendons. L''original &eacute;tait un vieux style sauce cajun et c''est ça le noircissement &agrave; jour de version. C''est gentil, mais vous obtenez un grand succ&egrave;s de cannelle et de clou de girofle avec un coup de chaleur agr&eacute;able de Cayenne. Utilisez-le sur tous les aliments &agrave; donner cette ambiance cajun.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-275, 13, 'fr', 'Sku', 'name', 'Bull Snort Smokin ''Hot Sauce Toncils');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-276, 13, 'fr', 'Sku', 'longDescription', 'Todo es m&aacute;s grande en Texas, incluso lo picante de la Salsa de Snortin Bull! Tout est plus grand au Texas, m&ecirc;me la brûlure de Hot Sauce une Snortin Bull! douche sur le Texas Steak taille qu''ils appellent le 96er Ole ou vos l&eacute;gumes Jane avion. Si vous &ecirc;tes un fan sur faire de la sauce barbecue &agrave; partir de z&eacute;ro comme je suis, vous pouvez utiliser la sauce Bull amygdales Snort Smokin ''Hot tant qu''additif. Red hot habaneros et piments donner &agrave; cette tingler amygdales sa saveur c&eacute;l&egrave;bre et rouge de chaleur chaud. Bull Snort Smokin ''Hot amygdales Sauce''ll avoir vos entrailles buckin »avec une goutte d''eau.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-277, 14, 'fr', 'Sku', 'name', 'Frais Poivre de Cayenne Hot Sauce');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-278, 14, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-279, 15, 'fr', 'Sku', 'name', 'Sauce &agrave; l''ail rôti chaud');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-280, 15, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-281, 16, 'fr', 'Sku', 'name', 'Sauce Scotch Bonnet chaud');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-282, 16, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-283, 17, 'fr', 'Sku', 'name', 'Sauce Scotch Bonnet chaud');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-284, 17, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-285, 18, 'fr', 'Sku', 'name', 'Sauces chaudes Jalapeno');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-286, 18, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-287, 19, 'fr', 'Sku', 'name', 'Sauce chaudes Chipotle');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-288, 19, 'fr', 'Sku', 'longDescription', 'Cette sauce tire sa saveur des poivrons grand &acirc;ge et le vinaigre de canne. Il permettra d''am&eacute;liorer la saveur de la plupart de n''importe quel repas.');
 
---
--- Load Locales:  Your site must have at least one Locale with DEFAULT_FLAG set to TRUE
--- You can have as many locales as you like. Currency can be set  to null if none have
--- been defined. i18n standard abbreviations should be used.
---
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('es', FALSE, 'Spanish', 'EUR');
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('fr', FALSE, 'French', 'EUR');
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('en_GB', FALSE,'English (United Kingdom)', 'GBP');
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('es_MX', FALSE, 'Spanish (Mexico)', 'MXN');
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('es_ES', FALSE, 'Spanish (Spain)', 'EUR');
-INSERT INTO BLC_LOCALE (LOCALE_CODE, DEFAULT_FLAG, FRIENDLY_NAME, CURRENCY_CODE) VALUES ('fr_FR', FALSE,'French (France)', 'EUR');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-289, 100, 'fr', 'Sku', 'name', 'Hawt comme une chemise Habanero (Hommes)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-290, 100, 'fr', 'Sku', 'longDescription', 'Collecte Hommes Habanero standards chemise &agrave; manches courtes t s&eacute;rigraphi&eacute;es en 30 coton doux singles en coupe regular.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-291, 200, 'fr', 'Sku', 'name', 'Hawt comme une chemise Habanero (Femmes)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-292, 200, 'fr', 'Sku', 'longDescription', 'Collecte de femmes Habanero standards chemise &agrave; manches courtes shirt s&eacute;rigraphi&eacute; &agrave; 30 coton doux singles en coupe regular.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-293, 300, 'fr', 'Sku', 'name', 'Clinique de chaleur tir&eacute; par la main (Hommes)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-294, 300, 'fr', 'Sku', 'longDescription', 'Ce t-shirt logo dessin&eacute; &agrave; la main pour les hommes dispose d''une coupe r&eacute;guli&egrave;re en trois couleurs diff&eacute;rentes.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-295, 400, 'fr', 'Sku', 'name', 'Clinique de chaleur tir&eacute; par la main (Femmes)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-296, 400, 'fr', 'Sku', 'longDescription', 'Ce t-shirt logo dessin&eacute; &agrave; la main pour les femmes dispose d''une coupe r&eacute;guli&egrave;re en trois couleurs diff&eacute;rentes.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-297, 500, 'fr', 'Sku', 'name', 'Mascot Clinique chaleur (Hommes)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-298, 500, 'fr', 'Sku', 'longDescription', 'Avez-vous pas juste notre mascotte? Obtenez votre chemise propre aujourd''hui!');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-299, 600, 'fr', 'Sku', 'name', 'Mascot Clinique chaleur (Femmes)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-300, 600, 'fr', 'Sku', 'longDescription', 'Avez-vous pas juste notre mascotte? Obtenez votre chemise propre aujourd''hui!');
 
 
---
--- The following items create page templates.   The key is to map a JSP template (TMPLT_PATH) to
--- a LOCALE_CODE.   In the example below, there is only one JSP template "basic".   The full
--- path to the template is .../WEB_INF/jsp/templates/basic.jsp.
---
-INSERT INTO BLC_PAGE_TMPLT (PAGE_TMPLT_ID, LOCALE_CODE, TMPLT_NAME, TMPLT_DESCR, TMPLT_PATH) VALUES (2, 'es', 'Basic Spanish Template', 'This template provides a basic layout with header and footer surrounding the content and title.', '/content/default') ;
-
---
--- Map both the spanish template to this field group.
---
-INSERT INTO BLC_PGTMPLT_FLDGRP_XREF(PAGE_TMPLT_ID, FLD_GROUP_ID, GROUP_ORDER) VALUES (2,1,0);
+-----------------------------------------------------------------------------------------------------------------------------------
+-- SEARCH FACET TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-380, 1, 'fr', 'SearchFacet', 'label', 'Fabricant');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-381, 2, 'fr', 'SearchFacet', 'label', 'Degr&eacute; de chaleur');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-382, 3, 'fr', 'SearchFacet', 'label', 'Prix');
 
 
+-----------------------------------------------------------------------------------------------------------------------------------
+-- FULFILLMENT OPTIONS TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-391, 1, 'fr', 'FulfillmentOption', 'name', 'Norme');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-392, 1, 'fr', 'FulfillmentOption', 'longDescription', '5 - 7 Journ&eacute;es');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-393, 2, 'fr', 'FulfillmentOption', 'name', 'Priorit&eacute;');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-394, 2, 'fr', 'FulfillmentOption', 'longDescription', '3 - 5 Journ&eacute;es');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-395, 3, 'fr', 'FulfillmentOption', 'name', 'Express');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-396, 3, 'fr', 'FulfillmentOption', 'longDescription', '1 - 2 Journ&eacute;es');-----------------------------------------------------------------------------------------------------------------------------------
+-- SPANISH TRANSLATION DATA
+-- Translates the catalog and content for the demo application to spanish.
+-- Uses translation ids ranging from -1 to -199
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- CATEGORY DATA TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+-- Category names
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-1, 2001, 'es', 'Category', 'name', 'Inicio');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-2, 2002, 'es', 'Category', 'name', 'Salsas');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-3, 2003, 'es', 'Category', 'name', 'Mercanc&iacute;a');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-4, 2004, 'es', 'Category', 'name', 'Descuento');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-5, 2005, 'es', 'Category', 'name', 'Nuevo a la Salsa?');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-6, 2006, 'es', 'Category', 'name', 'FAQ');                     
+-- Category descriptions
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-11, 2001, 'es', 'Category', 'description', 'Inicio');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-12, 2002, 'es', 'Category', 'description', 'Salsas Picantes');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-13, 2003, 'es', 'Category', 'description', 'Mercanc&iacute;a');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-14, 2004, 'es', 'Category', 'description', 'Descuento');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-15, 2005, 'es', 'Category', 'description', 'Iniciando con Salsas?');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-16, 2006, 'es', 'Category', 'description', 'FAQ');                     
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- PRODUCT OPTIONS TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-31, 1, 'es', 'ProdOption', 'label', 'Color de Camisa');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-32, 2, 'es', 'ProdOption', 'label', 'Tama&ntilde;o de Camisa');
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- PRODUCT OPTION VALUES TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-41, 1, 'es', 'ProdOptionVal', 'attributeValue', 'Negro');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-42, 2, 'es', 'ProdOptionVal', 'attributeValue', 'Rojo');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-43, 3, 'es', 'ProdOptionVal', 'attributeValue', 'Plateado');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-44, 11, 'es', 'ProdOptionVal', 'attributeValue', 'CH');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-45, 12, 'es', 'ProdOptionVal', 'attributeValue', 'M');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-46, 13, 'es', 'ProdOptionVal', 'attributeValue', 'G');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-47, 14, 'es', 'ProdOptionVal', 'attributeValue', 'XG');
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- PRODUCT SKU TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-51, 1, 'es', 'Sku', 'name', 'Salsa de la Muerte S&uacute;bita');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-52, 1, 'es', 'Sku', 'longDescription', 'Como mis amigos salseros saben, nunca soy f&aacute;cil de satisfacer. Por lo tanto, naci&oacute; la creaci&oacute;n de la Muerte S&uacute;bita. Cuando este listo para saborear al m&aacute;s all&aacute; ... Muerte s&uacute;bita entregar&aacute;!');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-53, 2, 'es', 'Sku', 'name', 'Salsa de la Muerte Dulce');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-54, 2, 'es', 'Sku', 'longDescription', 'El perfecto acompa&ntilde;ante para el pollo, el pescado, hamburguesas o pizza. Una gran mezcla de habanero, mango, fruta de la pasi&oacute;n y mucho m&aacute;s hacen de esta salsa de la Muerte una delicia tropical incre&iacute;ble.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-55, 3, 'es', 'Sku', 'name', 'Salsa de la Muerte Saltante');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-56, 3, 'es', 'Sku', 'longDescription', 'Picante, maduro pimienta que se mezcla junto con el ajo, la cebolla, pasta de tomate y una pizca de az&uacute;car de ca&ntilde;a para hacer de esto una salsa suave. Maravilloso en huevos, aves de corral, carne de cerdo o pescado, esta salsa se ​​mezcla para hacer los adobos y sopas ricas.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-57, 4, 'es', 'Sku', 'name', 'Salsa del D&iacute;a de los Muertos de Chipotle');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-58, 4, 'es', 'Sku', 'longDescription', 'Cuando cualquier pimienta se seca y se fuma, se refiere como un Chipotle. Por lo general, con una apariencia arrugada, caf&eacute; oscuro, el Chipotle ofrece un sabor ahumado y dulce que se utiliza generalmente para agregar un sabor asado a las salsas, guisos y adobos.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-59, 5, 'es', 'Sku', 'name', 'Salsa del D&iacute;a de los Muertos de Habanero');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-60, 5, 'es', 'Sku', 'longDescription', 'Si quieres picante, este es el Chile a elegir. Originario del Caribe, Yucat&aacute;n y la Costa norte de Am&eacute;rica del Sur, el habanero se presenta en una variedad de colores que van desde el verde claro a un rojo brillante. El calor, sabor y aroma &uacute;nicos del Habanero ha convertido el chile en el favorito de los amantes del picante.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-61, 6, 'es', 'Sku', 'name', 'Salsa del D&iacute;a de los Muertos de Bonnet Escoc&eacute;s');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-62, 6, 'es', 'Sku', 'longDescription', 'Parecido al Habanero, el Bonnet Escoc&eacute;s tiene una punta profundamente invertidas en comparaci&oacute;n con el extremo puntiagudo del Habanero. Van en colores de verde a amarillo-naranja, el Bonnet Escoc&eacute;s es un alimento b&aacute;sico en West Indies, en Barbados y salsas estilo pimienta.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-63, 7, 'es', 'Sku', 'name', 'Fantasma Verde');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-64, 7, 'es', 'Sku', 'longDescription', 'Hecho con Naga Jolokia Bhut, el chile m&aacute;s picante del mundo.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-65, 8, 'es', 'Sku', 'name', 'Salsa de Habanero de la Silla Ardiente');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-66, 8, 'es', 'Sku', 'longDescription', 'Esta salsa caliente recibe su nombre por la gente que aprecian una salsa picante. Lo que vas a encontrar aquí es un sabor picante realmente original, no una acritud abrumador que se encuentra en las salsas de chile Tabasco ordinarios - a pesar de la pimienta usado en este producto ha sido probado en 285.000 unidades Scoville. Por lo tanto, ensillar a dar un paseo para recordar. Para asegurarnos de que usted trajo s&oacute;lo la mejor salsa de pimiento habanero, nos fuimos a las faldas de las monta&ntilde;as mayas en Belice, Am&eacute;rica Central. Este producto se prepara totalmente a mano utilizando s&oacute;lo las verduras frescas y solo ingredientes naturales.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-67, 9, 'es', 'Sku', 'name', 'Fin del Mundo Salsa');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-68, 9, 'es', 'Sku', 'longDescription', 'Todo el infierno se ha desatado, fuego y azufre. Est&aacute; listo para el fin?');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-69, 10, 'es', 'Sku', 'name', 'Salsa Loca del Dr. Chilemeister');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-70, 10, 'es', 'Sku', 'longDescription', 'Aquí est&aacute; la receta para aquellos que disfrutan de picante intolerable. Esta salsa macabra y mortal del Dr. Chilemeister se debe utilizar con precauci&oacute;n. El dolor puede llegar a ser adictivo!');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-71, 11, 'es', 'Sku', 'name', 'Salsa Picante del Vaquero');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-72, 11, 'es', 'Sku', 'longDescription', 'Espolvorear con platos de carne, pescado y verduras. Use como aditivo en la salsa de barbacoa o cualquier alimento que necesita un sabor picante. Comience con unas gotas y aumente hasta llegar al sabor deseado.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-73, 12, 'es', 'Sku', 'name', 'Salsa Dulce de Cajun de Lousiane');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-74, 12, 'es', 'Sku', 'longDescription', 'Una de las salsas m&aacute;s inusuales que vendemos. La original era un viejo estilo salsa caj&uacute;n y esto versi&oacute;n actualizada ennegrecimiento. Es dulce, pero se obtiene un gran sabor de canela y clavo de olor con un tiro agradable de piacnte de Cayena. Use en todos los alimentos para dar ese toque caj&uacute;n.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-75, 13, 'es', 'Sku', 'name', 'Salsa Mata-Gargantas de Bull Snort');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-76, 13, 'es', 'Sku', 'longDescription', 'Todo es m&aacute;s grande en Texas, incluso lo picante de la Salsa de Snortin Bull! Si usted es un fan de hacer la salsa de barbacoa a partir de cero, como yo, puede utilizar la Salsa de Snortin Bull como aditivo. Habaneros ardientes y los pimientos de cayena dan a la garganta un sabor y calor al rojo vivo.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-77, 14, 'es', 'Sku', 'name', 'Salsa de Cayene Fresco');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-78, 14, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-79, 15, 'es', 'Sku', 'name', 'Salsa de Ajo Tostado');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-80, 15, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-81, 16, 'es', 'Sku', 'name', 'Salsa de Locura');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-82, 16, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-83, 17, 'es', 'Sku', 'name', 'Salsa de Locura');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-84, 17, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-85, 18, 'es', 'Sku', 'name', 'Salsa de Jalape&ntilde;o Ardiente');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-86, 18, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-87, 19, 'es', 'Sku', 'name', 'Salsa de Pimienta Roja y Chipotle');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-88, 19, 'es', 'Sku', 'longDescription', 'Esta salsa debe su gran sabor a los pimientos de edad y vinagre de ca&ntilde;a. Mejorar&aacute; el sabor de cualquier comida.');
+
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-89, 100, 'es', 'Sku', 'name', 'Camisa de Habanero Hawt (Hombres)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-90, 100, 'es', 'Sku', 'longDescription', 'Colecci&oacute;n de Hombres Habanero est&aacute;ndar de manga corta serigrafiadas, camiseta de algod&oacute;n suave en ajuste normal.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-91, 200, 'es', 'Sku', 'name', 'Camisa de Habanero Hawt (Mujeres)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-92, 200, 'es', 'Sku', 'longDescription', 'Colecci&oacute;n de Mujeres Habanero est&aacute;ndar de manga corta serigrafiadas, camiseta de algod&oacute;n suave en ajuste normal.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-93, 300, 'es', 'Sku', 'name', 'Heat Clinic dibujado a mano (Hombres)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-94, 300, 'es', 'Sku', 'longDescription', 'Esta camiseta tiene el logo dibujado a mano para hombres, ofrece un ajuste regular en tres colores diferentes.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-95, 400, 'es', 'Sku', 'name', 'Heat Clinic dibujado a mano (Mujeres)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-96, 400, 'es', 'Sku', 'longDescription', 'Esta camiseta tiene el logo dibujado a mano para hombres, ofrece un ajuste regular en tres colores diferentes.');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-97, 500, 'es', 'Sku', 'name', 'Mascota de Heat Clinic (Hombres)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-98, 500, 'es', 'Sku', 'longDescription', '&iquest;No te encanta nuestra mascota? Compre su propia camiseta hoy!');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-99, 600, 'es', 'Sku', 'name', 'Mascota de Heat Clinic (Mujeres)');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-100, 600, 'es', 'Sku', 'longDescription', '&iquest;No te encanta nuestra mascota? Compre su propia camiseta hoy!');
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- SEARCH FACET TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-180, 1, 'es', 'SearchFacet', 'label', 'Fabricante');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-181, 2, 'es', 'SearchFacet', 'label', 'Rango de Calor');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-182, 3, 'es', 'SearchFacet', 'label', 'Precio');
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-- FULFILLMENT OPTIONS TRANSLATION
+-----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-191, 1, 'es', 'FulfillmentOption', 'name', 'Estándar');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-192, 1, 'es', 'FulfillmentOption', 'longDescription', '5 - 7 D&iacute;as');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-193, 2, 'es', 'FulfillmentOption', 'name', 'Ejecutiva');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-194, 2, 'es', 'FulfillmentOption', 'longDescription', '3 - 5 D&iacute;as');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-195, 3, 'es', 'FulfillmentOption', 'name', 'Express');
+INSERT INTO BLC_TRANSLATION (TRANSLATION_ID, ENTITY_ID, LOCALE_CODE, ENTITY_TYPE, FIELD_NAME,  TRANSLATED_VALUE) VALUES (-196, 3, 'es', 'FulfillmentOption', 'longDescription', '1 - 2 D&iacute;as');
 --
 -- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
 --
@@ -2142,60 +2199,3 @@ INSERT INTO BLC_SITE_MAP_URL_ENTRY (URL_ENTRY_ID,GEN_CONFIG_ID,LAST_MODIFIED,LOC
 INSERT INTO BLC_SITE_MAP_URL_ENTRY (URL_ENTRY_ID,GEN_CONFIG_ID,LAST_MODIFIED,LOCATION,CHANGE_FREQ,PRIORITY) VALUES (-6,-1,CURRENT_TIMESTAMP,'http://www.heatclinic.com/6','HOURLY','0.5');
 INSERT INTO BLC_SITE_MAP_URL_ENTRY (URL_ENTRY_ID,GEN_CONFIG_ID,LAST_MODIFIED,LOCATION,CHANGE_FREQ,PRIORITY) VALUES (-7,-1,CURRENT_TIMESTAMP,'http://www.heatclinic.com/7','HOURLY','0.5');
 INSERT INTO BLC_SITE_MAP_URL_ENTRY (URL_ENTRY_ID,GEN_CONFIG_ID,LAST_MODIFIED,LOCATION,CHANGE_FREQ,PRIORITY) VALUES (-8,-1,CURRENT_TIMESTAMP,'http://www.heatclinic.com/8','HOURLY','0.5');
---
--- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
---
--- This will cause hibernate to populate the database when the application is started by processing the files that
--- were configured in the hibernate.hbm2ddl.import_files property.
---
--- This file is responsible for initializing table sequences.   The numbers here need
--- to be greater than the ids that are inserted as part of load_catalog_data.sql (or other load files)
--- to prevent duplicate key exceptions.
---
-
---
--- Initialize SEQUENCE_GENERATOR values
---
-
--- Catalog
-INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryImpl',10000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('CategorySearchFacetImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryExcludedSearchFacetImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('SearchFacetImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('SearchFacetRangeImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductImpl',10000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryProductImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('SkuImpl',10000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductOptionImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductOptionXrefImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductOptionValueImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('ProductAttributeImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('MediaImpl',100000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('StaticAssetImpl',100000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('URLHandlerImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('SearchInterceptImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FeaturedProductImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('OfferItemCriteriaImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('OfferImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('OfferCodeImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FulfillmentOptionImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryXrefImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('CategoryProductXrefImpl',1000);
-
--- CMS
-INSERT INTO SEQUENCE_GENERATOR VALUES ('PageImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('PageFieldImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('PageTemplateImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldDefinitionImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldEnumerationImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldEnumerationItemImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentFieldImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentRuleImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('StructuredContentTypeImpl',1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('FieldGroupImpl', 1000);
-
--- Other
-INSERT INTO SEQUENCE_GENERATOR VALUES ('RoleImpl', 1000);
-INSERT INTO SEQUENCE_GENERATOR VALUES ('ChallengeQuestionImpl', 1000);
