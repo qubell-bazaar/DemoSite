@@ -256,10 +256,10 @@ span.error_spacer {
 
 header {
     width: 100%;
-    color: #342020;
+    color: #18F5AF;
     font: 15px/28px 'Open Sans', Helvetica, sans-serif;
     font-weight: 600;
-    border-top: 15px solid #E40037;
+    border-top: 15px solid #18F5AF;
 }
 
 #header_content {
@@ -370,7 +370,7 @@ header {
 
     #header_content #cart_info {
         padding: 10px 20px;
-        background-color: #E40037;
+        background-color: #18F5AF;
         color: white;
         text-align: right;
         float: right;
